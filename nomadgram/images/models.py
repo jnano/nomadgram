@@ -1,5 +1,5 @@
 from django.db import models
-
+from nomadgram.users import models as user_models
 
 class TimeStempedModel(models.Model):
 
@@ -22,3 +22,8 @@ class Image(TimeStempedModel):
 class Comment(TimeStempedModel):
 
     message = models.TextField()
+
+
+
+class Like(TimeStempedModel):
+    creator = models.ForeignKey(user_models.User)
